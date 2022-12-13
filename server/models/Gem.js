@@ -13,6 +13,9 @@ const gemSchema = new Schema({
     link: {
         type: String,
     },
+    gemId: {
+        type: String,
+    }
 });
 
 module.exports = gemSchema;
