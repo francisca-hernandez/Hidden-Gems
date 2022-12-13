@@ -1,0 +1,1 @@
+// have logout and conditionally render whichever page you are on
