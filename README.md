@@ -61,6 +61,7 @@ Provide instructions and examples for use. Include screenshots as needed.
 * JWT
 * GraphQL
 * React-strap & Bootstrap
+* Favicon.io
 
 
 ## Features
