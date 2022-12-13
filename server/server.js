@@ -1,4 +1,7 @@
 const express = require('express');
+
+// ONCE GRAPHQL IS INTEGRATED UNCOMMENT THESE COMMENTS
+
 //import apolloserver
 // const { ApolloServer } = require('apollo-server-express');
 
@@ -10,6 +13,8 @@ const db = require('./config/connection');
 //boilerplate middleware
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// ONCE GRAPHQL IS INTEGRATED UNCOMMENT THESE COMMENTS
 
 // const server = new ApolloServer({
 //   typeDefs,
@@ -23,6 +28,8 @@ app.use(express.json());
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
 }
+
+// ONCE GRAPHQL IS INTEGRATED UNCOMMENT THESE COMMENTS
 
 // const startApolloServer = async (typeDefs, resolvers) => {
 //   await server.start();
