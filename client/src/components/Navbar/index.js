@@ -1,56 +1,59 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+
+//Bootstp CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText,
-} from 'reactstrap';
+    Nav,
+    NavItem,
+    Dropdown,
+    DropdownItem,
+    DropdownToggle,
+    DropdownMenu,
+    NavLink,
+  } from 'reactstrap';
+  
 
-function Example(args) {
-  const [isOpen, setIsOpen] = useState(false);
+  //Nav Bar with tabs props
 
-  const toggle = () => setIsOpen(!isOpen);
+  function Navbar(props) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+  
+    const toggle = () => setDropdownOpen(!dropdownOpen);
+  
+    return (
+      <Nav tabs>
+        <NavItem>
+          <NavLink href="#" active>
+            Homepage
+          </NavLink>
+        </NavItem>
+        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle nav caret>
+            Dropdown
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>Header</DropdownItem>
+            <DropdownItem disabled>Action</DropdownItem>
+            <DropdownItem>Another Action</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>Another Action</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <NavItem>
+          <NavLink href="#">Sign-in</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">About Us</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink disabled href="#">
+            Disabled Link
+          </NavLink>
+        </NavItem>
+      </Nav>
+    );
+  }
 
-  return (
-    <div>
-      <Navbar {...args}>
-        <NavbarBrand href="/">Hidden Gems</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
-        <Collapse isOpen={isOpen} navbar>
-          <Nav className="me-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Components</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-          <NavbarText>Homepage</NavbarText>
-        </Collapse>
-      </Navbar>
-    </div>
-  );
-}
 
-export default Example;
+export default Navbar;
