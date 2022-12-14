@@ -16,7 +16,7 @@ import {
 
   //Nav Bar with tabs props
 
-  function Navbar(props) {
+   export function Navbar(_props) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
   
     const toggle = () => setDropdownOpen(!dropdownOpen);

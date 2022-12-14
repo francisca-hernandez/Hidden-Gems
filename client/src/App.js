@@ -1,38 +1,55 @@
 import React from 'react';
-
-//Routes
 //import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+//Apollo Provider
+import {
+  ApolloProvider, ApolloClient, InMemoryCache, createHttpLink
+} from '@apollo/client';
+
+//import { setContext } from '@apollo/client';
 // import logo from './logo.svg';
+
 import './App.css';
 
+//Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
+//Pages
 //import Login from './pages/Login';
 //import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
 
 
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-   
-   <div>
 
-<Navbar></Navbar>
+    <ApolloProvider client={client}>
 
-<main>
+      <div>
 
-</main>
+        <Navbar></Navbar>
 
-<Footer/>
+        <main>
 
-    </div>
+        </main>
 
-    
-    
+        <Footer />
+
+      </div>
+
+
+    </ApolloProvider>
 
 
   );
