@@ -5,6 +5,12 @@ import { LOGIN_USER } from '../utils/mutation';
 import Auth from '../utils/auth';
 
 const Login = (props) => {
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    }
+
     const [formState, setFormState] = useState({ email: '', password: '' });
     const [login, { error }] = useMutation(LOGIN_USER);
 
@@ -20,6 +26,7 @@ const Login = (props) => {
 
     // submit form
     const handleFormSubmit = async (event) => {
+        alert('Form submitted');
         event.preventDefault();
 
         try {
@@ -28,6 +35,7 @@ const Login = (props) => {
             });
 
             Auth.login(data.login.token);
+            console.log('logged in');
         } catch (e) {
             console.error(e);
         }
@@ -62,12 +70,24 @@ const Login = (props) => {
                                 value={formState.password}
                                 onChange={handleChange}
                             />
-                            <button type="submit">
+                            <button type="button" onClick={handleFormSubmit} >
                                 Submit
                             </button>
                         </form>
 
                         {error && <div>Login failed</div>}
+
+                        {Auth.loggedIn() ? (
+                            <>
+                                <h1>Logged in</h1>
+                                <button onClick={logout}>Logout</button>
+                                
+                            </>
+                        ) : (
+                            <>
+                                <p>Not Logged-In</p>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
