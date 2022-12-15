@@ -15,10 +15,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-import Homepage from './pages/Homepage';
+import Homepage from './pages/homepage';
 
 //Pages
 import Login from './pages/Login';
+import Gemsform from './pages/Gemsform'; 
+
 //import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
@@ -57,6 +59,10 @@ function App() {
           <Login></Login>
           
         </main>
+        <section>
+          <Gemsform></Gemsform>
+          <SaveGem></SaveGem>
+        </section>
 
         <Footer />
 
