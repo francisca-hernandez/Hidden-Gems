@@ -6,7 +6,7 @@ import {
   ApolloProvider, ApolloClient, InMemoryCache, createHttpLink
 } from '@apollo/client';
 
-//import { setContext } from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 // import logo from './logo.svg';
 
 import './App.css';
@@ -14,6 +14,8 @@ import './App.css';
 //Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+
+import Homepage from './pages/Homepage';
 
 //Pages
 //import Login from './pages/Login';
@@ -23,11 +25,21 @@ import Footer from './components/Footer';
 
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
 });
 
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -41,7 +53,7 @@ function App() {
         <Navbar></Navbar>
 
         <main>
-
+          <Homepage></Homepage>
         </main>
 
         <Footer />
