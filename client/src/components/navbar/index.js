@@ -1,4 +1,3 @@
-// have logout and conditionally render whichever page you are on
 import React, {useState} from 'react';
 
 //Bootstp CSS
@@ -57,3 +56,4 @@ import {
   }
 
   export default Navbar;
+
