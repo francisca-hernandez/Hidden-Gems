@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../utils/mutation';
+import { LOGIN_USER } from '../utils/mutation';
+
 import Auth from '../utils/auth';
 
-const Homepage = () => {
-    const [formState, setFormState] = useState({
-        username: '',
-        email: '',
-        password: '',
-    });
-    const [addUser, { error }] = useMutation(ADD_USER);
+const Login = (props) => {
+
+    const logout = event => {
+        event.preventDefault();
+        Auth.logout();
+    }
+
+    const [formState, setFormState] = useState({ email: '', password: '' });
+    const [login, { error }] = useMutation(LOGIN_USER);
 
     // update state based on form input changes
     const handleChange = (event) => {
@@ -23,34 +26,34 @@ const Homepage = () => {
 
     // submit form
     const handleFormSubmit = async (event) => {
+        alert('Form submitted');
         event.preventDefault();
 
         try {
-            const { data } = await addUser({
+            const { data } = await login({
                 variables: { ...formState },
             });
 
-            Auth.login(data.addUser.token);
+            Auth.login(data.login.token);
+            console.log('logged in');
         } catch (e) {
             console.error(e);
         }
+
+        // clear form values
+        setFormState({
+            email: '',
+            password: '',
+        });
     };
 
     return (
         <main>
             <div>
                 <div>
-                    <h4>Sign Up</h4>
+                    <h4>Login</h4>
                     <div>
                         <form onSubmit={handleFormSubmit}>
-                            <input
-                                placeholder="Your username"
-                                name="username"
-                                type="username"
-                                id="username"
-                                value={formState.username}
-                                onChange={handleChange}
-                            />
                             <input
                                 placeholder="Your email"
                                 name="email"
@@ -67,12 +70,24 @@ const Homepage = () => {
                                 value={formState.password}
                                 onChange={handleChange}
                             />
-                            <button type="submit">
+                            <button type="button" onClick={handleFormSubmit} >
                                 Submit
                             </button>
                         </form>
 
-                        {error && <div>Signup failed</div>}
+                        {error && <div>Login failed</div>}
+
+                        {Auth.loggedIn() ? (
+                            <>
+                                <h1>Logged in</h1>
+                                <button onClick={logout}>Logout</button>
+                                
+                            </>
+                        ) : (
+                            <>
+                                <p>Not Logged-In</p>
+                            </>
+                        )}
                     </div>
                 </div>
             </div>
@@ -80,4 +95,4 @@ const Homepage = () => {
     );
 };
 
-export default Homepage;
+export default Login;
