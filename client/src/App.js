@@ -18,7 +18,7 @@ import Footer from './components/Footer';
 import Homepage from './pages/Homepage';
 
 //Pages
-//import Login from './pages/Login';
+import Login from './pages/Login';
 //import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
@@ -54,6 +54,7 @@ function App() {
 
         <main>
           <Homepage></Homepage>
+          <Login></Login>
         </main>
 
         <Footer />
