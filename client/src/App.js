@@ -21,6 +21,7 @@ import Homepage from './pages/homepage';
 import Login from './pages/Login';
 import Gemsform from './pages/Gemsform'; 
 
+
 //import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
@@ -61,7 +62,6 @@ function App() {
         </main>
         <section>
           <Gemsform></Gemsform>
-          <SaveGem></SaveGem>
         </section>
 
         <Footer />
