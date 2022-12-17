@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { SAVE_GEM } from '../utils/mutation';
-import Auth from '../utils/auth';
+
 // Function for Adding a Gem and the form
 
 const Gemsform = () => {
+
     const [formState, setFormState] = useState({
         name: '',
         description: '',
@@ -26,15 +27,13 @@ const Gemsform = () => {
     // submit form
      const handleFormSubmit = async (event) => {
         event.preventDefault();
-
         try {
-            const { data } = await saveGem({
-                variables: { ...formState },
-            });
-
-            Auth.login(data.saveGem.token);
-        } catch (e) {
-            console.error(e);
+            await saveGem({ 
+                variables: {...formState}
+            })
+            console.log(saveGem);
+        } catch (error) {
+            console.log(error);
         }
     };
     return (
@@ -87,9 +86,11 @@ const Gemsform = () => {
                             <button type="submit">
                                 Submit a New Gem
                             </button>
+        
                         </form>
 
                         {error && <div>Failed to add a new Gem!</div>}
+                        
                     </div>
                 </div>
             </div>
