@@ -29,7 +29,7 @@ export const ADD_USER = gql`
 
 // Saved Gem
 export const SAVE_GEM = gql`
-    mutation SaveGem($name: String!, $description: String!, $address: String!, $link: String!, $gemId: String!) {
+    mutation saveGem($name: String!, $description: String!, $address: String!, $link: String!, $gemId: String!) {
         saveGem(name: $name, description: $description, address: $address, link: $link, gemId: $gemId) {
         _id
         gemCount
@@ -46,7 +46,7 @@ export const SAVE_GEM = gql`
 
 // Remove Gem - *optional*
 export const REMOVE_GEM = gql`
-    mutation SaveGem($gemId: ID!) {
+    mutation removeGem($gemId: ID!) {
         removeGem(gemId: $gemId) {
         gemCount
         savedGems {
