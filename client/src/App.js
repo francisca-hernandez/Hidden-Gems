@@ -20,6 +20,7 @@ import Homepage from './pages/homepage';
 //Pages
 import Login from './pages/Login';
 import Gemsform from './pages/Gemsform'; 
+import Dashboard from './pages/Dashboard';
 
 
 //import Signup from './pages/Signup';
@@ -62,6 +63,7 @@ function App() {
         </main>
         <section>
           <Gemsform></Gemsform>
+          <Dashboard></Dashboard>
         </section>
 
         <Footer />
