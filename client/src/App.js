@@ -15,7 +15,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-import Homepage from './pages/homepage';
+import Homepage from './pages/Homepage';
 
 //Pages
 import Login from './pages/Login';
