@@ -88,7 +88,10 @@ Provide instructions and examples for use. Include screenshots as needed.
 * Gigi Debortoli [- GitHub](https://github.com/Gdebortoli)
 * Francisca Hernandez [- GitHub](https://github.com/francisca-hernandez)
 * Joseph Hernandez [- GitHub](https://github.com/jrhscoding)
-* David Ricksgers [- GitHub](https://github.com/DavidRicksgers)
+
+### Minor contributions: 
+
+* David Ricksgers [- GitHub](https://github.com/DavidRicksgers) - created logo for project 
 
 ![BreakoutRm16 Badge](https://img.shields.io/badge/Brought%20to%20you%20by%3A%20-BreakoutRm16inc-FF69B4)
 
