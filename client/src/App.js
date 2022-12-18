@@ -3,24 +3,26 @@ import React from 'react';
 
 //Apollo Provider
 import {
-  ApolloProvider, ApolloClient, InMemoryCache, createHttpLink
+  ApolloProvider, 
+  ApolloClient, 
+  InMemoryCache, 
+  createHttpLink
 } from '@apollo/client';
-
 import { setContext } from '@apollo/client/link/context';
 // import logo from './logo.svg';
 
 import './App.css';
-
 //Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-import Homepage from './pages/Homepage';
-
 //Pages
 import Login from './pages/Login';
 import Gemsform from './pages/Gemsform'; 
+import Signup from './pages/CreateUser';
 import Dashboard from './pages/Dashboard';
+import { Router } from 'express';
+import CreateUser from './pages/CreateUser';
 
 
 //import Signup from './pages/Signup';
@@ -49,33 +51,74 @@ const client = new ApolloClient({
 
 function App() {
   return (
-
     <ApolloProvider client={client}>
+      <Router>
+          <Navbar />
 
-      <div>
+        <Routes>
+          <Route
+          path="/"
+          element={<Homepage />}
+          />
 
-        <Navbar></Navbar>
+           <Route
+          path="/"
+          element={<Login />}
+          />
+           <Route
+          path="/"
+          element={<CreateUser />}
+          />
 
-        <main>
-          <Homepage></Homepage>
-          <Login></Login>
-          
-        </main>
-        <section>
-          <Gemsform></Gemsform>
-          <Dashboard></Dashboard>
-        </section>
+          <Route path="/Dashboard">
+            <Route path= ":username" element={<Dashboard />} />
+            <Route path="" element={<Dashboard />} />
+          </Route>
 
-        <Footer />
+          <Route 
+                path="/saveGem/:id" 
+                element={<Gemsform />} 
+              />
 
-      </div>
-
-
+        </Routes>
+        <div>
+          <Footer />
+        </div>
+      </Router>
     </ApolloProvider>
-
-
   );
 }
+
+
+
+
+
+
+
+//       <div>
+
+//         <Navbar></Navbar>
+
+//         <main>
+//           <Homepage></Homepage>
+//           <Login></Login>
+          
+//         </main>
+//         <section>
+//           <Gemsform></Gemsform>
+//           <Dashboard></Dashboard>
+//         </section>
+
+//         <Footer />
+
+//       </div>
+
+
+//     </ApolloProvider>
+
+
+//   );
+// }
 
 export default App;
 

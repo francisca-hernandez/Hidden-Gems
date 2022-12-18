@@ -41,7 +41,7 @@ import {
           </DropdownMenu>
         </Dropdown>
         <NavItem>
-          <NavLink href="#">Sign-in</NavLink>
+          <NavLink href="./">Sign-in</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#">About Us</NavLink>
