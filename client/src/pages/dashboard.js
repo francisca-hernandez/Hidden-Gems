@@ -11,22 +11,21 @@ import Auth from '../utils/auth';
 // declaring variable and inputing stuff that needs to be imported
 
 const Dashboard = () => {
-    const { loading, data } = useQuery(QUERY_ME)
-    console.log(data); 
-
-    const savedGems = data.me.savedGems || [];
-
-
-    const loggedIn = Auth.loggedIn();
+    const { data } = useQuery(QUERY_ME);
+    console.log(data?.me?.savedGems);
+    const gems = data?.me?.savedGems;
+    console.log(gems);
 
     return (
-        <main>
-            <div>
-                <h1>GEMS</h1>
-            </div>
-        </main>
-    );
-};
+        <div>
+            {gems &&
+                gems.map(gem => (
+                    <h1>{gem.name}</h1>
+                ))}
+        </div>
+    )
+
+}
 
 
 export default Dashboard; 
