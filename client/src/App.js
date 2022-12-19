@@ -1,5 +1,5 @@
 import React from 'react';
-//import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 //Apollo Provider
 import {
@@ -17,9 +17,7 @@ import Footer from './components/Footer';
 import AddGem from './components/AddGem';
 // import DeleteGem from './components/DeleteGem';
 import Gems from './components/Gems'
-import Login from './components/Login';
-import Logout from './components/Logout';
-import SignUp from './components/Signup';
+import SignUp from './components/SignUp';
 
 //Pages
 import Login from './pages/Login';
@@ -27,7 +25,6 @@ import Dashboard from './pages/Dashboard';
 import Homepage from './pages/Homepage';
 
 
-//import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
 
@@ -53,28 +50,49 @@ const client = new ApolloClient({
 
 function App() {
   return (
-
     <ApolloProvider client={client}>
-
+      <Router>
       <div>
-
-        <Navbar></Navbar>
-
-        <main>
-          <Homepage></Homepage>
-          <Login></Login>
-          
-        </main>
-        <section>
-          <Gemsform></Gemsform>
-          <Dashboard></Dashboard>
-        </section>
-
-        <Footer />
-
+      <Navbar />
       </div>
+         <Routes>
 
+          <div>
+          <Route path="/Homepage" element={<Homepage />} />
+          {/* links to about us - mission statement - links to github/contact form */}
+          </div>
 
+          <div>
+          <Route path="/Login" element={<Login />} />
+          {/* login and signUp */}
+
+          <Route 
+                path="/SignUp" 
+                element={<SignUp />} 
+              />
+          </div>
+
+          <div>
+          <Route path="/Dashboard" element={<Dashboard/>}> 
+
+          </Route>
+          {/* Create, Save, delete gem */}
+          
+          <Route 
+                path="/Gems/:id" 
+                element={<Gems />} 
+              />
+           <Route 
+                path="/AddGem" 
+                element={<AddGem />} 
+              />
+          </div>
+
+        </Routes>
+      <div>
+      <Footer />
+      </div>
+      </Router>
     </ApolloProvider>
 
 
