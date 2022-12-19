@@ -1,41 +1,59 @@
-import React from 'react';
-//import React, {useState} from 'react';
+import React, {useState} from 'react';
 
 //Bootstp CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {
+    Nav,
+    NavItem,
+    Dropdown,
+    DropdownItem,
+    DropdownToggle,
+    DropdownMenu,
+    NavLink,
+  } from 'reactstrap';
 
 
-  //Nav Bar 
-  const Navbar = () => {
+  //Nav Bar with tabs props
+
+   export function Navbar(_props) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(!dropdownOpen);
 
     return (
-      <nav class="navbar navbar-expand-lg bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Signup</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="#">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+      <Nav tabs>
+        <NavItem>
+          <NavLink href="#" active>
+            Homepage
+          </NavLink>
+        </NavItem>
+        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle nav caret>
+            Dropdown
+          </DropdownToggle>
+          <DropdownMenu>
+            {/* <DropdownItem header>Header</DropdownItem> */}
+
+            <DropdownItem>Another Action</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>Another Action</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <NavItem>
+          <NavLink href="./Login.js">Sign-in</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="./Dashboard.js">Dashboard</NavLink>
+        </NavItem>
+        <NavItem>
+          <NavLink href="#">About Us</NavLink>
+        </NavItem>
+        <NavItem>
+
+        </NavItem>
+      </Nav>
     );
-  };
+  }
 
   export default Navbar;
-
