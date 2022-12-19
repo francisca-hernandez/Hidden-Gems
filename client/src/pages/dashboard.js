@@ -10,19 +10,27 @@ import Auth from '../utils/auth';
 // linking the saveGems
 // jsx - same as the other pages
 // declaring variable and inputing stuff that needs to be imported
-const Dashboard = (props) => {
+const Dashboard = () => {
     const { data } = useQuery(QUERY_ME);
     console.log(data?.me?.savedGems);
     const gems = data?.me?.savedGems;
     console.log(gems);
+
+    // To make sure user is logged in
+    // const loggedIn = Auth.loggedIn();
+    
     return (
+    <main>
+        <Navbar></Navbar>
         <div>
-            {gems &&
-                gems.map(gem => (
-                    <h1>{gem.name}</h1>
-                ))}
+            <Gems></Gems>
         </div>
-    )
+        <div>
+            <AddGem></AddGem>
+        </div>
+        <Footer></Footer>
+    </main>
+    ) 
 }
 export default Dashboard;
 // data.me.savedGems is the query call - may need a keyword

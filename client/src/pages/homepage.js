@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+
+
+
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutation';
 import Auth from '../utils/auth';
@@ -38,6 +43,7 @@ const Homepage = () => {
 
     return (
         <main>
+            <Navbar></Navbar>
             <div>
                 <div>
                     <h4>Sign Up</h4>
@@ -76,6 +82,7 @@ const Homepage = () => {
                     </div>
                 </div>
             </div>
+            <Footer></Footer>
         </main>
     );
 };
