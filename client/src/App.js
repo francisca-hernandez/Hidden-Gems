@@ -14,13 +14,17 @@ import './App.css';
 //Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-import Homepage from './pages/Homepage';
+import AddGem from './components/AddGem';
+// import DeleteGem from './components/DeleteGem';
+import Gems from './components/Gems'
+import Login from './components/Login';
+import Logout from './components/Logout';
+import SignUp from './components/Signup';
 
 //Pages
 import Login from './pages/Login';
-import Gemsform from './pages/Gemsform'; 
 import Dashboard from './pages/Dashboard';
+import Homepage from './pages/Homepage';
 
 
 //import Signup from './pages/Signup';
