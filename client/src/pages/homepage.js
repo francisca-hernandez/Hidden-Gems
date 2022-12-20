@@ -2,7 +2,7 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { NavItem, NavLink } from "reactstrap";
+import { NavItem} from "reactstrap";
 
 const Homepage = () => {
     
