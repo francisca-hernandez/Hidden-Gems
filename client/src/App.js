@@ -1,10 +1,13 @@
-import React from 'react';
-//import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react'
+// import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 //Apollo Provider
 import {
-  ApolloProvider, ApolloClient, InMemoryCache, createHttpLink
-} from '@apollo/client';
+  ApolloProvider,
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+} from '@apollo/client'
 
 import { setContext } from '@apollo/client/link/context';
 // import logo from './logo.svg';
@@ -14,26 +17,25 @@ import './App.css';
 //Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-import Homepage from './pages/Homepage';
+// import DeleteGem from './components/DeleteGem';
+// import Gems from './components/Gems';
 
 //Pages
 import Login from './pages/Login';
-import Gemsform from './pages/Gemsform'; 
 import Dashboard from './pages/Dashboard';
+import Homepage from './pages/Homepage';
+// import Gemsform from './pages/Gemsform'
+// import SignUp from './pages/SignUp';
 
-
-//import Signup from './pages/Signup';
 //import About from './pages/About';
 //import Contact from './pages/Contact';
-
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
+  const token = localStorage.getItem('id_token')
   return {
     headers: {
       ...headers,
@@ -54,16 +56,23 @@ function App() {
 
       <div>
 
-        <Navbar></Navbar>
+        <Navbar />
 
         <main>
           <Homepage></Homepage>
-          <Login></Login>
-          
         </main>
+
         <section>
-          <Gemsform></Gemsform>
+
+        <Login></Login>
+        
+        </section>
+
+        <section>
+          
           <Dashboard></Dashboard>
+          {/* <Gemsform></Gemsform> */}
+
         </section>
 
         <Footer />
@@ -77,5 +86,4 @@ function App() {
   );
 }
 
-export default App;
-
+export default App; 
