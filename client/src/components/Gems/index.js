@@ -43,3 +43,7 @@ export default Gems;
 // - (ex: is in the gems form and login page at the bottom)
 // Just need them to show up on the page as cards or whatever but
 // for now just words (try to look at project 1)
+
+
+
+
