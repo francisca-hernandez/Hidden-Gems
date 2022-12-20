@@ -42,20 +42,18 @@ export const SAVE_GEM = gql`
         }
       }
     }
-`; 
+`;
 
 // Remove Gem - *optional*
 export const REMOVE_GEM = gql`
-    mutation removeGem($gemId: ID!) {
-        removeGem(gemId: $gemId) {
-        gemCount
-        savedGems {
+    mutation removeGem($id: ID!) {
+        removeGem(_id: $id) {
+            savedGems {
             name
-            description
             address
+            description
             link
-            gemId
         }
-      }
-    }  
+    }
+  }
 `; //DOES THIS LOOK OKAY? - optional section
