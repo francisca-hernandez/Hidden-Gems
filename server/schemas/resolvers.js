@@ -52,10 +52,10 @@ const resolvers = {
             throw new AuthenticationError('Not logged in I guess?');
         },
 
-        removeGem: async (parent, args, { user }) => {
-            if (user) {
-                const removedGem = await User.findOneAndDelete(
-                    {_id: user._id},
+        removeGem: async (parent, args, context) => {
+            if (context.user) {
+                const removedGem = await User.findOneAndUpdate(
+                    {_id: context.user._id},
                     {$pull: {savedGems: args}},
                     {new: true}
                 )
