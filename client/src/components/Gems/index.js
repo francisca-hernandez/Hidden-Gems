@@ -31,15 +31,25 @@ const Gems = () => {
           gems.map((gem) => (
             <div key={gem._id}>
               <Card
+              
                 style={{
+                  backgroundColor: '#81978C',
                   width: '18rem',
                 }}
               >
                 <CardBody>
                   <CardTitle tag="h5">{gem.name}</CardTitle>
-                  <CardSubtitle tag="h6">{gem.description}</CardSubtitle>
-                  <CardText>{gem.address}</CardText>
+                  <CardSubtitle tag="h6" className="mb-2 text-muted">{gem.gemId}</CardSubtitle>
+                </CardBody>
+                <img 
+                  // alt="Card cap"
+                  src="https://i.picsum.photos/id/171/2048/1536.jpg?hmac=16eVtfmqTAEcr8VwTREQX4kV8dzZKcGWI5ouMlhRBuk"
+                  width="100%"
+                  />
+                <CardBody>
+                  <CardText>{gem.description}</CardText>
                   <CardLink href={gem.link}>Website Link!</CardLink>
+                  <CardLink href={gem.address}>Directions!</CardLink>
                 </CardBody>
               </Card>
               {/* <Card
