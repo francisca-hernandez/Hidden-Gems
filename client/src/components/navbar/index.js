@@ -1,8 +1,5 @@
 import React, {useState} from 'react';
 
-//Bootstp CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 import {
     Nav,
     NavItem,
@@ -15,13 +12,13 @@ import {
 
 
   //Nav Bar with tabs props
-
-   export function Navbar(_props) {
+  const Navbar = () => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(!dropdownOpen);
 
     return (
+    
       <Nav tabs>
         <NavItem>
           <NavLink href="#" active>
@@ -41,19 +38,19 @@ import {
           </DropdownMenu>
         </Dropdown>
         <NavItem>
-          <NavLink href="./Login.js">Sign-in</NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink href="./Dashboard.js">Dashboard</NavLink>
+          <NavLink href="#">Sign-in</NavLink>
         </NavItem>
         <NavItem>
           <NavLink href="#">About Us</NavLink>
         </NavItem>
         <NavItem>
-
+          <NavLink disabled href="#">
+            Disabled Link
+          </NavLink>
         </NavItem>
       </Nav>
     );
   }
 
   export default Navbar;
+

@@ -1,12 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react'; 
+import { Link } from 'react-router-dom'; 
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'; 
+
+
 // linking the saveGems
 // jsx - same as the other pages
 // declaring variable and inputing stuff that needs to be imported
+
 const Gems = ({ gems }) => {
-  if (!gems.length) {
+  if (!gems.length >= 0) {
     return <h3>No Gems Added Yet</h3>
-  }
+  } else
   return (
     <Card
       style={{
@@ -31,7 +35,7 @@ const Gems = ({ gems }) => {
     </Card>
   )
 }
-export default Gems
+export default Gems; 
 
 // data.me.savedGems is the query call - may need a keyword
 // data.me.savedGems will need to be a map function OR we can use antoher type of loop
