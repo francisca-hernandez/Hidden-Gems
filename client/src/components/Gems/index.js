@@ -29,7 +29,7 @@ const Gems = () => {
       <div>
         {gems &&
           gems.map((gem) => (
-            <div>
+            <div key={gem._id}>
               <Card
                 style={{
                   width: '18rem',
