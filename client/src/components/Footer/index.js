@@ -7,7 +7,7 @@ const Footer = () => {
                 &copy;{new Date().getFullYear()} Breakout rm 16
                 &nbsp; 
                 
-                <a href="" target="_blank">View on Github</a> | If you know, you know
+                <a href="https://github.com/francisca-hernandez/Hidden-Gems" rel="noreferrer" target="_blank">View on Github</a> | If you know, you know
 
             </div>
         </footer>
