@@ -3,7 +3,6 @@ import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutation';
 
 import Auth from '../utils/auth';
-import { Navbar } from 'reactstrap';
 import Footer from '../components/Footer';
 import SignUp from './SignUp';
 
@@ -52,7 +51,7 @@ const Login = (props) => {
 
     return (
         <main>
-            <Navbar />
+   
             <div>
                 <div>
                     <SignUp />

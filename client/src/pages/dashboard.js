@@ -1,55 +1,32 @@
 import React from 'react';
 import Footer from '../components/Footer';
-import Navbar from '../components/Navbar';
 // import Gems from '../components/Gems';
 import Gemsform from './Gemsform';
 // needs a logout function just on the dashboard
-import { useQuery, } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
-import Auth from '../utils/auth';
+// import { useQuery, } from '@apollo/client';
+// import { QUERY_ME } from '../utils/queries';
+import Gems from '../components/Gems';
 
 // linking the saveGems
 // jsx - same as the other pages
 // declaring variable and inputing stuff that needs to be imported
 const Dashboard = () => {
-    const { data } = useQuery(QUERY_ME);
-    console.log(data?.me?.savedGems);
-    const gems = data?.me?.savedGems;
-    console.log(gems);
+    // const { data } = useQuery(QUERY_ME);
+    // console.log(data?.me?.savedGems);
+    // const gems = data?.me?.savedGems;
+    // console.log(gems);
 
-    // To make sure user is logged in
-    const loggedIn = Auth.loggedIn();
+
     
     return (
             <main>
-                <Navbar />
 
-                <section>
-                    <Gemsform />
+
+                <section className='flex'>
+                    <Gemsform></Gemsform>
+                    <Gems></Gems>
                 </section>
-                {/* <div className="container-fluid"></div>
-              <div className="flex-row justify-space-between">
-                {loggedIn && (
-                  <div className="col-12 mb-3">
-                    <Gemsform />
-                  </div>
-                )}
-                <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
-                  {loading ? (
-                    <div>Loading...</div>
-                  ) : (
-                    <Gems 
-                      gems={gems}
-                      title="Found Treasures"
-                    />
-                  )}
-                </div>
-                {loggedIn && Gems? (
-                  <div className="col-12 col-lg-3 mb-3">
-                    <Gems/>
-                  </div>
-                ) : null}
-              </div> */}
+
               <Footer />
             </main>
           );

@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Auth from '../../utils/auth';
 
 import {
     Nav,
@@ -10,9 +11,12 @@ import {
     NavLink,           
   } from 'reactstrap';
 
-
   //Nav Bar with tabs props
   const Navbar = () => {
+    const logout = event => {
+      event.preventDefault();
+      Auth.logout();
+  }
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(!dropdownOpen);
@@ -48,6 +52,18 @@ import {
             Disabled Link
           </NavLink>
         </NavItem>
+        {Auth.loggedIn() ? (
+          <>
+        <NavItem>
+        <button onClick={logout}>Logout</button>
+        </NavItem>
+          </>
+        ) : (
+          <>
+
+          </>
+        )}
+
       </Nav>
     );
   }
