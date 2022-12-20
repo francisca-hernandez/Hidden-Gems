@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
-
-//Bootstp CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Auth from '../../utils/auth';
 
 import {
     Nav,
@@ -10,18 +8,21 @@ import {
     DropdownItem,
     DropdownToggle,
     DropdownMenu,
-    NavLink,
+    NavLink,           
   } from 'reactstrap';
-  
 
   //Nav Bar with tabs props
-
-   export function Navbar(_props) {
+  const Navbar = () => {
+    const logout = event => {
+      event.preventDefault();
+      Auth.logout();
+  }
     const [dropdownOpen, setDropdownOpen] = useState(false);
-  
+
     const toggle = () => setDropdownOpen(!dropdownOpen);
-  
+
     return (
+    
       <Nav tabs>
         <NavItem>
           <NavLink href="#" active>
@@ -34,7 +35,7 @@ import {
           </DropdownToggle>
           <DropdownMenu>
             {/* <DropdownItem header>Header</DropdownItem> */}
-            
+
             <DropdownItem>Another Action</DropdownItem>
             <DropdownItem divider />
             <DropdownItem>Another Action</DropdownItem>
@@ -51,9 +52,20 @@ import {
             Disabled Link
           </NavLink>
         </NavItem>
+        {Auth.loggedIn() ? (
+          <>
+        <NavItem>
+        <button onClick={logout}>Logout</button>
+        </NavItem>
+          </>
+        ) : (
+          <>
+
+          </>
+        )}
+
       </Nav>
     );
   }
 
   export default Navbar;
-
