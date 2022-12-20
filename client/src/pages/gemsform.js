@@ -51,6 +51,14 @@ const Gemsform = () => {
                                 value={formState.name}
                                 onChange={handleChange}
                             />
+                             <input
+                                placeholder="Type of Gem"
+                                name="gemId"
+                                type="gemId"
+                                id="gemId"
+                                value={formState.gemId}
+                                onChange={handleChange}
+                            />
                             <input
                                 placeholder="Description"
                                 name="description"
@@ -60,7 +68,7 @@ const Gemsform = () => {
                                 onChange={handleChange}
                             />
                             <input
-                                placeholder="address"
+                                placeholder="Address"
                                 name="address"
                                 type="address"
                                 id="address"
@@ -73,14 +81,6 @@ const Gemsform = () => {
                                 type="link"
                                 id="link"
                                 value={formState.link}
-                                onChange={handleChange}
-                            />
-                            <input
-                                placeholder="Gem ID"
-                                name="gemId"
-                                type="gemId"
-                                id="gemId"
-                                value={formState.gemId}
                                 onChange={handleChange}
                             />
                             <button type="submit">
