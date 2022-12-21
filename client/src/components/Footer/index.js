@@ -2,7 +2,9 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <footer className="w-100 mt-auto bg-secondary p-4 fixed-bottom ">
+        <footer className="w-100 bg-secondary p-4 fixed-bottom" style={{
+            marginTop: '100px',
+        }}>
             <div className="container">
                 &copy;{new Date().getFullYear()} Breakout rm 16
                 &nbsp; 

@@ -1,78 +1,75 @@
-
-
-import React, { useState } from 'react'; 
+import React, {useState} from 'react';
 
 import Auth from '../../utils/auth';
+//Bootstp CSS
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// //Bootstp CSS
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-// Importing nav elements from reactstrap
 import {
-  Nav,
-  NavItem,
-  Dropdown,
-  DropdownItem,
-  DropdownToggle,
-  DropdownMenu,
-  NavLink,
-  NavbarBrand,
-} from 'reactstrap'
+    Nav,
+    NavItem,
+    Dropdown,
+    DropdownItem,
+    DropdownToggle,
+    DropdownMenu,
+    NavLink,
+    NavbarBrand, 
+    Button
+  } from 'reactstrap';
 
-//Nav Bar with tabs props
 
-export function Navbar(_props) {
-  const [dropdownOpen, setDropdownOpen] = useState(false)
-  //   const [collapsed, setCollapsed] = useState(true)
+  //Nav Bar with tabs props
 
-  const toggle = () => setDropdownOpen(!dropdownOpen)
-  //   const toggleNavbar = () => setCollapsed(!collapsed)
+   export function Navbar(_props) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const logout = event => {
-    event.preventDefault();
-    Auth.logout();
-}
-  return (
-    <div
-      style={{
-        fontSize: '20px',
-      }}
-    >
-      <Nav card>
+    const toggle = () => setDropdownOpen(!dropdownOpen);
+
+    const logout = event => {
+          event.preventDefault();
+          Auth.logout();
+      }
+    
+    return (
+      <Nav tabs>
         <NavbarBrand
           href=""
           style={{
-            marginTop: '4px',
+            marginTop: '10px',
             marginLeft: '10px',
             fontSize: '30px',
-          }}
-        >
-          {/* <img src="assets/img/logo.png" alt="Logo" /> */}
-          HiddenGems - Oregon
-        </NavbarBrand>
-        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}
-        style={{
-            
+            marginRight: '10px',
           }}>
-          <DropdownToggle nav caret>
-            Dropdown
-          </DropdownToggle>
-          <DropdownMenu>
-            {/* <DropdownItem header>Header</DropdownItem> */}
-            <DropdownItem>Another Action</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem>Another Action</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+          <h1>HiddenGems - Oregon</h1>
+        </NavbarBrand>
+        <NavItem>
+          <NavLink href="#">Sign-in</NavLink>
+        </NavItem>
         <NavItem>
           <NavLink href="#">About Us</NavLink>
         </NavItem>
-        <NavItem pill>
-          <NavLink href="#">Sign-in</NavLink>
+        <Dropdown nav isOpen={dropdownOpen} toggle={toggle}>
+          <DropdownToggle nav caret>
+            Resources
+          </DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem>Mission Statement</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>FAQ</DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <NavItem>
+          <NavLink href="#">
+            Contact Us
+          </NavLink>
         </NavItem>
         {Auth.loggedIn() ? (
           <>
         <NavItem>
-        <button onClick={logout}>Logout</button>
+        <Button onClick={logout} style={{
+          marginTop: '16px',
+          marginleft: '5px',
+          fontWeight: 'bold',
+        }}>Logout</Button>
         </NavItem>
           </>
         ) : (
@@ -80,9 +77,10 @@ export function Navbar(_props) {
 
           </>
         )}
-      </Nav>
-    </div>
-  )
+      </Nav>         
+  )        
 }
 
-export default Navbar
+export default Navbar;
+
+
