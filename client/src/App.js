@@ -67,11 +67,10 @@ function App() {
           <>
             <main>
               <Homepage></Homepage>
-            </main>
-
-            <section>
+              <section>
               <Login></Login>
             </section>
+            </main>
           </>
         )}
 
