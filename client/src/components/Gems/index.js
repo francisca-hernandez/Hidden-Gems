@@ -48,8 +48,8 @@ const Gems = () => {
                   />
                 <CardBody>
                   <CardText>{gem.description}</CardText>
-                  <CardLink href={gem.link}>Website Link!</CardLink>
-                  <CardLink href={gem.address}>Directions!</CardLink>
+                  <CardLink href={gem.link}>Website Link</CardLink>
+                  <CardLink href={gem.address}>Directions</CardLink>
                 </CardBody>
               </Card>
               {/* <Card
