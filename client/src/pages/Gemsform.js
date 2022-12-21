@@ -33,6 +33,13 @@ const Gemsform = () => {
                 variables: { ...formState }
             })
             console.log(saveGem);
+            setFormState({
+                name: '',
+                description: '',
+                address: '',
+                link: '',
+                gemId: '',
+            });
         } catch (error) {
             console.log(error);
         }

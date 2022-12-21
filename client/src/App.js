@@ -52,7 +52,7 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div>
+      <div className='paddingfix'>
         <Navbar className="ms-auto"/>
 
         {Auth.loggedIn() ? (
@@ -73,8 +73,9 @@ function App() {
             </main>
           </>
         )}
-
-        <Footer />
+      </div>
+      <div>
+      <Footer />
       </div>
     </ApolloProvider>
   )

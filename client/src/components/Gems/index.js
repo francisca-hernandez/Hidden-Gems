@@ -8,7 +8,8 @@ import {
   CardText,
   CardLink,
   Button,
-
+  Row,
+  Col
 } from 'reactstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -45,49 +46,47 @@ const Gems = () => {
     return <h3>No Gems Added Yet</h3>
   } else {
     return (
-      <div>
+      <Row lg={4}>
         {gems &&
           gems.map((gem) => (
-            <div key={gem._id}>
-              
-               
+            <Col className='d-flex'>
 
-   
+              <Card
+                key={gem._id}
+                className='flex my-2'
 
-               <Card
-              
                 style={{
                   backgroundColor: '#81978C',
                   width: '18rem',
-                  display:'',
+                  display: '',
                 }}
               >
                 <CardBody>
-                  
+
                   <CardTitle tag="h5">{gem.name}</CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted">{gem.gemId}</CardSubtitle>
                 </CardBody>
-                <img 
+                <img
                   alt="blurred city with raindrops on lens"
                   src="https://i.picsum.photos/id/171/2048/1536.jpg?hmac=16eVtfmqTAEcr8VwTREQX4kV8dzZKcGWI5ouMlhRBuk"
                   width="100%"
-                  />
+                />
                 <CardBody>
                   <CardText>{gem.description}</CardText>
                   <CardLink href={gem.link}>Website Link</CardLink>
                   <CardLink href={gem.address}>Directions</CardLink>
                   <Button style={{
-                  backgroundColor: 'secondary',
-                         }} onClick={() => handleDelete(gem)}>Delete Gem</Button>
+                    backgroundColor: 'secondary',
+                  }} onClick={() => handleDelete(gem)}>Delete Gem</Button>
                 </CardBody>
               </Card>
-           
-              
 
-            
-            </div>
+
+
+
+            </Col>
           ))}
-      </div>
+      </Row>
     )
   }
 }
