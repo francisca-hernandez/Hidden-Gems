@@ -10,7 +10,7 @@ import Gems from '../components/Gems';
 // linking the saveGems
 // jsx - same as the other pages
 // declaring variable and inputing stuff that needs to be imported
-const Dashboard = () => {
+const  Dashboard = () => {
     // const { data } = useQuery(QUERY_ME);
     // console.log(data?.me?.savedGems);
     // const gems = data?.me?.savedGems;
