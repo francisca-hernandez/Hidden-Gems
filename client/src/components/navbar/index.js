@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react'; 
 
 import Auth from '../../utils/auth';
@@ -37,7 +35,7 @@ export function Navbar(_props) {
         fontSize: '20px',
       }}
     >
-      <Nav card>
+      <Nav className='mr-auto'>
         <NavbarBrand
           href=""
           style={{
@@ -66,7 +64,7 @@ export function Navbar(_props) {
         <NavItem>
           <NavLink href="#">About Us</NavLink>
         </NavItem>
-        <NavItem pill>
+        <NavItem>
           <NavLink href="#">Sign-in</NavLink>
         </NavItem>
         {Auth.loggedIn() ? (
