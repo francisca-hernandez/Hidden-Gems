@@ -6,7 +6,9 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
-  CardLink
+  CardLink,
+  Button,
+
 } from 'reactstrap';
 
 import { useQuery, useMutation } from '@apollo/client';
@@ -47,19 +49,26 @@ const Gems = () => {
         {gems &&
           gems.map((gem) => (
             <div key={gem._id}>
-              <Card
+              
+               
+
+   
+
+               <Card
               
                 style={{
                   backgroundColor: '#81978C',
                   width: '18rem',
+                  display:'',
                 }}
               >
                 <CardBody>
+                  
                   <CardTitle tag="h5">{gem.name}</CardTitle>
                   <CardSubtitle tag="h6" className="mb-2 text-muted">{gem.gemId}</CardSubtitle>
                 </CardBody>
                 <img 
-                  // alt="Card cap"
+                  alt="blurred city with raindrops on lens"
                   src="https://i.picsum.photos/id/171/2048/1536.jpg?hmac=16eVtfmqTAEcr8VwTREQX4kV8dzZKcGWI5ouMlhRBuk"
                   width="100%"
                   />
@@ -67,28 +76,15 @@ const Gems = () => {
                   <CardText>{gem.description}</CardText>
                   <CardLink href={gem.link}>Website Link</CardLink>
                   <CardLink href={gem.address}>Directions</CardLink>
-                  <button onClick={() => handleDelete(gem)}>Delete Gem</button>
+                  <Button style={{
+                  backgroundColor: 'secondary',
+                         }} onClick={() => handleDelete(gem)}>Delete Gem</Button>
                 </CardBody>
               </Card>
-              {/* <Card
-                style={{
-                  width: '18rem',
-                }}
-              >
-                <img alt="Sample" src="" />
-                <CardBody>
-                  <CardTitle tag="h5">{gems.name}</CardTitle>
-                  <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    {gems.description}
-                  </CardSubtitle>
-                  <CardText>
-                    {gems.address}
-                    <Link to={gems.link}>{''}</Link>
-                  </CardText>
-                  <Button>Button</Button>
-                </CardBody>
-                )
-              </Card> */}
+           
+              
+
+            
             </div>
           ))}
       </div>
@@ -98,9 +94,4 @@ const Gems = () => {
 
 export default Gems
 
-// data.me.savedGems is the query call - may need a keyword
-// data.me.savedGems will need to be a map function OR we can use antoher type of loop
-// we can add a conditional statement to do something else while the queries are loading
-// - (ex: is in the gems form and login page at the bottom)
-// Just need them to show up on the page as cards or whatever but
-// for now just words (try to look at project 1)
+
