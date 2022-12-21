@@ -11,7 +11,7 @@ const Gemsform = () => {
         description: '',
         address: '',
         link: '',
-        gemId: '',
+        gemId: '',  
     });
     const [saveGem, { error }] = useMutation(SAVE_GEM);
 
