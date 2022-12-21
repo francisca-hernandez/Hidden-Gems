@@ -34,7 +34,7 @@ const typeDefs = gql`
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
         saveGem(name: String!, description: String!, address: String!, link: String!, gemId: String!): User
-        removeGem(gemId: ID!): User
+        removeGem(_id: ID!): User
     }
 `;
 
