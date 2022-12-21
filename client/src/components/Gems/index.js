@@ -49,10 +49,9 @@ const Gems = () => {
       <Row lg={4}>
         {gems &&
           gems.map((gem) => (
-            <Col className='d-flex'>
+            <Col key={gem._id} className='d-flex'>
 
               <Card
-                key={gem._id}
                 className='flex my-2'
 
                 style={{

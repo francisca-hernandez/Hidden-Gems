@@ -29,7 +29,6 @@ const Login = (props) => {
 
   // submit form
   const handleFormSubmit = async (event) => {
-    alert('Form submitted')
     event.preventDefault()
 
     try {
