@@ -1,18 +1,18 @@
 import React from "react";
 // import ReactDOM from "react-dom";
 import Footer from "../components/Footer";
-import { NavItem} from "reactstrap";
+import { NavItem } from "reactstrap";
 
 const Homepage = () => {
-    
+
 
     return (
         <div>
 
             <main>
-              <NavItem>
-                {/* <NavLink href="/SignUp" className="navlink"></NavLink>  */}
-              </NavItem>
+                <NavItem>
+                    {/* <NavLink href="/SignUp" className="navlink"></NavLink>  */}
+                </NavItem>
             </main>
             <Footer />
         </div>
