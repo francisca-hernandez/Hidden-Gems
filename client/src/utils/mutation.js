@@ -53,6 +53,7 @@ export const REMOVE_GEM = gql`
             address
             description
             link
+            gemId
         }
     }
   }
