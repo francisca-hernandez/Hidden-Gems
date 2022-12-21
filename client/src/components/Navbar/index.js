@@ -80,7 +80,7 @@ export function Navbar(_props) {
 
           </>
         )}
-      </Nav>
+      </Nav>         
     </div>
   )
 }
