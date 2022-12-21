@@ -23,17 +23,17 @@ const Gems = () => {
   console.log(data?.me?.savedGems);
   const gems = data?.me?.savedGems;
   console.log(gems);
-  
 
-  const [deleteGem] = useMutation(REMOVE_GEM);
 
-  const handleDelete= async (gem) => {
+  const [removeGem] = useMutation(REMOVE_GEM);
+
+  const handleDelete = async (gem) => {
+    console.log(gem)
     try {
-      await deleteGem({
-        variables:  { id: gem._id }
+      await removeGem({
+        variables: { id: gem._id }
       })
-
-      console.log(deleteGem);
+      window.location.reload()
     } catch (error) {
       console.log(error);
     }
@@ -57,7 +57,7 @@ const Gems = () => {
                   <CardSubtitle tag="h6">{gem.description}</CardSubtitle>
                   <CardText>{gem.address}</CardText>
                   <CardLink href={gem.link}>Website Link!</CardLink>
-                  <button onClick={handleDelete}>Delete Gem</button>
+                  <button onClick={() => handleDelete(gem)}>Delete Gem</button>
                 </CardBody>
               </Card>
               {/* <Card
