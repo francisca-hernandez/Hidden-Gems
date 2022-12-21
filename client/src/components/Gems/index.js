@@ -37,7 +37,7 @@ const Gems = () => {
               >
                 <CardBody>
                   <CardTitle tag="h5">{gem.name}</CardTitle>
-                  <CardSubtitle tag="h6" className="mb-2 text-muted">{gem.description}</CardSubtitle>
+                  <CardSubtitle tag="h6">{gem.description}</CardSubtitle>
                   <CardText>{gem.address}</CardText>
                   <CardLink href={gem.link}>Website Link!</CardLink>
                 </CardBody>

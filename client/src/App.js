@@ -53,7 +53,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div>
-        <Navbar />
+        <Navbar className="ms-auto"/>
 
         {Auth.loggedIn() ? (
           <>
