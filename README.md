@@ -1,16 +1,14 @@
-# Project 3 
+# HiddenGems 
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+An pepole who lives in different parts of Oregon, we know there are a lot of touristy spots and places that are unknown except to locals and the lucky few that come across them. 
 
-- What was your motivation? 
-* * Wanting to create a space where people can find hidden gems in the areas they visit in oregon and not just the tourist spots. They can also add to the application by submitting hidden gems to the site and after review they can be added. 
-- Why did you build this project? 
-* *  to make traveling around oregon a little less touristy and to give some other underrated areas and small buisnesses chances to be seen and traveled to. 
-- What problem does it solve?
-* * Where to go when you are traveling around oregon and cannot decide where to go for certain activities
+We built an app to be able to login and document and save the "hidden gems" you find in oregon to be able to keep for yourself or share with others. 
 
+This is meant to be somewhere you can share them or keep them private on your dashboard and be able to see other's Gems and add new ones yourself. 
+
+This is for the user that does not want to be another tourist and wants to see or just save the real gems of the beautiful state of Oregon. 
 
 ## Table of Contents
 
@@ -20,7 +18,6 @@ Provide a short description explaining the what, why, and how of your project. U
 - [Assets](#assets)
 - [Features](#features)
 - [How to Contribute](#how-to-contribute)
-- [Tests](#tests)
 - [License](#license)
 - [Credits](#credits)
 
@@ -37,20 +34,23 @@ As an application we would like it to follow the following criteria -
 * Protect sensitive API key information on the server
 * Must be mobile friendly 
 
-bonus?? PWA
-* uses webmanifest 
-* uses a service worker for offline functionality
-* is installable 
-
 ## Installation
 
-- [Heroku link]()
+- [Heroku link](https://stormy-retreat-53284.herokuapp.com/)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+* No need to install - Just follow the above Heroku link
 
-![image](assets/images/..)
+### Screenshots
+
+Homepage
+
+![hp](./client/src/assets/images/screenshots/SC.hp.jpg)
+
+Dashboard
+
+![dashboard](./client/src/assets/images/screenshots/SC.db.jpg)
 
 ## Assets
 
@@ -60,22 +60,20 @@ Provide instructions and examples for use. Include screenshots as needed.
 * Express.js
 * JWT
 * GraphQL
-* React-strap & Bootstrap
+* Reactstrap & Bootstrap
 * Favicon.io
 
 
 ## Features
 
-* 
-
+* Login and Logout 
+* Create a new User 
+* Save a hidden gem with information
+* Delete a hidden gem
 
 ## How to Contribute
 
-
-
-## Tests
-
-
+* (In Progress) We wanted a feature to contact to be able to send in feedback or suggestions to make the application something more collaborative with the users. 
 
 ## License
 

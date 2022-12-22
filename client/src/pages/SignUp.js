@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import { useMutation } from '@apollo/client'
-import { ADD_USER } from '../utils/mutation'
-import Auth from '../utils/auth'
+import React, { useState } from 'react'; 
+import { useMutation } from '@apollo/client'; 
+import { ADD_USER } from '../utils/mutation'; 
+import Auth from '../utils/auth'; 
 
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap'; 
 
+// input for signup form
 const SignUp = () => {
   const [formState, setFormState] = useState({
     username: '',
@@ -32,6 +33,7 @@ const SignUp = () => {
       console.error(e)
     }
   }
+  // Styling the signup form
   return (
     <main>
       <div>
@@ -92,9 +94,14 @@ const SignUp = () => {
                   onChange={handleChange}
                 />
               </FormGroup>{' '}
-              <Button type="submit" style={{
-                    fontWeight: 'bold',
-                  }}>Submit</Button>
+              <Button
+                type="submit"
+                style={{
+                  fontWeight: 'bold',
+                }}
+              >
+                Submit
+              </Button>
             </Form>
             {error && <div>Signup failed</div>}
           </div>

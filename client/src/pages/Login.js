@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import { useMutation } from '@apollo/client'
-import { LOGIN_USER } from '../utils/mutation'
+import React, { useState } from 'react'; 
+import { useMutation } from '@apollo/client'; 
+import { LOGIN_USER } from '../utils/mutation'; 
 
-import Auth from '../utils/auth'
-import Footer from '../components/Footer'
-import SignUp from './SignUp'
+import Auth from '../utils/auth';
+import Footer from '../components/Footer';
+import SignUp from './SignUp';
 
-import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap'
+import { Form, FormGroup, Label, Input, Button, Col, Row } from 'reactstrap';
 
 const Login = (props) => {
   const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
+    event.preventDefault()
+    Auth.logout()
   }
 
   const [formState, setFormState] = useState({ email: '', password: '' })
@@ -48,14 +48,16 @@ const Login = (props) => {
       password: '',
     })
   }
-
+  // login form
   return (
     <main>
       <div>
-        <div style={{
-              marginLeft: '10px',
-              marginTop: '20px',
-          }}>
+        <div
+          style={{
+            marginLeft: '10px',
+            marginTop: '20px',
+          }}
+        >
           <h4>Login</h4>
           <div>
             <Form onSubmit={handleFormSubmit}>
@@ -99,9 +101,13 @@ const Login = (props) => {
                   </FormGroup>
                 </Col>
                 <Col>
-                  <Button type="button" onClick={handleFormSubmit} style={{
-                    fontWeight: 'bold',
-                  }}>
+                  <Button
+                    type="button"
+                    onClick={handleFormSubmit}
+                    style={{
+                      fontWeight: 'bold',
+                    }}
+                  >
                     Submit
                   </Button>
                 </Col>
@@ -109,13 +115,17 @@ const Login = (props) => {
             </Form>
 
             {error && <div>Login failed</div>}
-
+            {/* Conditional statement - if logged in a logout function shows but is hidden when logged out */}
             {Auth.loggedIn() ? (
               <>
                 <h1>Logged in</h1>
-                <Button Click={logout} style={{
-                  fontWeight: 'bold',                
-                  }} type='submit'>
+                <Button
+                  Click={logout}
+                  style={{
+                    fontWeight: 'bold',
+                  }}
+                  type="submit"
+                >
                   Logout
                 </Button>
               </>

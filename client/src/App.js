@@ -8,26 +8,20 @@ import {
   InMemoryCache,
   createHttpLink,
 } from '@apollo/client'
-
 import { setContext } from '@apollo/client/link/context'
-// import logo from './logo.svg';
 
+// CSS 
 import './App.css'
 
 //Components
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-// import DeleteGem from './components/DeleteGem';
 
 //Pages
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Homepage from './pages/Homepage'
-// import Gemsform from './pages/Gemsform'
-// import SignUp from './pages/SignUp';
-
-//import About from './pages/About';
-//import Contact from './pages/Contact';
+// Utils 
 import Auth from './utils/auth'
 
 const httpLink = createHttpLink({
@@ -52,15 +46,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className='paddingfix'>
-        <Navbar className="ms-auto"/>
+      <div className="paddingfix">
+        <Navbar className="ms-auto" />
 
         {Auth.loggedIn() ? (
           <>
             <section>
-            
               <Dashboard></Dashboard>
-            
             </section>
           </>
         ) : (
@@ -68,17 +60,17 @@ function App() {
             <main>
               <Homepage></Homepage>
               <section>
-              <Login></Login>
-            </section>
+                <Login></Login>
+              </section>
             </main>
           </>
         )}
       </div>
       <div>
-      <Footer />
+        <Footer />
       </div>
     </ApolloProvider>
   )
 }
 
-export default App;
+export default App
